@@ -6,10 +6,14 @@ function Reviews() {
   const [myreviews, setMyReviews] = useState(reviews);
   const [index, setIndex] = useState(0);
 
-  const nextReview = () => {
-    setIndex((index) => index + 1);
+  const { name, job, image, text } = myreviews[index];
 
-    if (index > myreviews.length - 1) {
+  const nextReview = () => {
+    setIndex((curIndex) => curIndex + 1);
+
+    console.log(index);
+
+    if (index === myreviews.length - 1) {
       setIndex(0);
     }
   };
@@ -22,20 +26,16 @@ function Reviews() {
   };
 
   const randomReview = () => {
-    setIndex(Math.floor(Math.random() * 4));
+    setIndex(Math.floor(Math.random() * myreviews.length));
   };
 
   return (
     <div className="container">
       <div className="review-card">
-        <img
-          className="img-responsive"
-          src={myreviews[index]?.image}
-          alt="review"
-        />
-        <h3 className="m-2">{myreviews[index]?.name}</h3>
-        <h5 className="m-2">{myreviews[index]?.job}</h5>
-        <p className="m-2">{myreviews[index]?.text}</p>
+        <img className="img-responsive" src={image} alt="review" />
+        <h3 className="m-2">{name}</h3>
+        <h5 className="m-2">{job}</h5>
+        <p className="m-2">{text}</p>
         <div className="buttons">
           <div>
             <FcPrevious className="next-btn" onClick={prevReview} size={40} />
