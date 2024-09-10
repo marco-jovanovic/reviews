@@ -9,7 +9,7 @@ function Reviews() {
   const nextReview = () => {
     setIndex((index) => index + 1);
 
-    if (index > 2) {
+    if (index > myreviews.length - 1) {
       setIndex(0);
     }
   };
@@ -17,15 +17,13 @@ function Reviews() {
     setIndex((index) => index - 1);
 
     if (index === 0) {
-      setIndex(3);
+      setIndex(myreviews.length - 1);
     }
   };
 
   const randomReview = () => {
     setIndex(Math.floor(Math.random() * 4));
   };
-
-  console.log(index);
 
   return (
     <div className="container">
