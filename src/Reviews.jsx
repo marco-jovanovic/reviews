@@ -11,8 +11,6 @@ function Reviews() {
   const nextReview = () => {
     setIndex((curIndex) => curIndex + 1);
 
-    console.log(index);
-
     if (index === myreviews.length - 1) {
       setIndex(0);
     }
@@ -32,7 +30,10 @@ function Reviews() {
   return (
     <div className="container">
       <div className="review-card">
-        <img className="img-responsive" src={image} alt="review" />
+        <div className="img-container">
+          <img className="img-responsive" src={image} alt="review" />
+        </div>
+
         <h3 className="m-2">{name}</h3>
         <h5 className="m-2">{job}</h5>
         <p className="m-2">{text}</p>
